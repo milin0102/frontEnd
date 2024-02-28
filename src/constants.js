@@ -1,7 +1,6 @@
-
 export const backEndUrls = {
-    'development':'http://localhost:3000/api/v1/',
-    'production':'http://ec2-3-25-162-142.ap-southeast-2.compute.amazonaws.com:3000'
+    'production':'http://ec2-54-252-195-7.ap-southeast-2.compute.amazonaws.com:3000/api/v1/',
+    'development': 'http://localhost:3000/api/v1/'
 }
 export const userRoutes = {
 'module':'user',
@@ -19,4 +18,4 @@ export const accountRoutes = {
         'Transfer':'/transfer',
         'Balance':'/balance'
     }
-}
+} 
