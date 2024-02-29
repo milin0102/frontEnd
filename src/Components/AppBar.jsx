@@ -2,7 +2,9 @@ import { useNavigate } from "react-router-dom"
 export default function AppBar({name}){
     const navigate = useNavigate()
     return <div className="flex shadow h-14 justify-between">
-       <div className="flex flex-col justify-center ml-4 h-full p-2">Paytm App</div>
+       <div className="flex flex-col justify-center ml-4 h-full p-2">
+        <h1 className="font-sans font-semibold underline shadow-indigo-500/40 transition-all">Rewardyy</h1>
+        </div>
        <div className="flex justify-between">
         <div className="flex flex-col justify-center h-full mr-4 p-2">Hola!!</div>
         <div className="flex flex-col justify-center mr-4">

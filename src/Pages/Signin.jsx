@@ -30,11 +30,11 @@ export default function Signin(){
                     }
                      let loginURL = backEndUrl+userRoutes.module+userRoutes.endpoint.Login
                      await axios.post(loginURL,request).then((response)=>{
-                        console.log("Hello: " + response.data.username)
-                        if(response.status==200){
-                            alert(response.data.message)
-                            localStorage.setItem("token",response.data.token)
-                            localStorage.setItem("username",response.data.username)
+                        console.log("Hello: " + response.data.success)
+                        if(response.data.success){
+                            alert("Yes i am in: "+response.data.message)
+                            localStorage.setItem("token",response.data.data.token)
+                            localStorage.setItem("username",response.data.data.username)
                             navigate("/")
                         }else{
                             alert(response.data.message)

@@ -19,17 +19,17 @@ export default function Dashboard(){
             headers:{
             authorization:"Bearer "+ token
         }}).then(async (resUser)=>{
-            console.log(resUser)
-            setCurrentUser(resUser.data)
-            if(resUser.data._id){
+            console.log(resUser.data.data)
+            setCurrentUser(resUser.data.data)
+            if(resUser.data.data._id){
                 let payload = {
-                    userId: resUser.data._id
+                    userId: resUser.data.data._id
                 }
                 console.log(payload)
                 let accountBalanceURL = backEndUrl+accountRoutes.module+accountRoutes.endpoint.Balance
                 await axios.post(accountBalanceURL,payload).then((userAccount)=>{
-                    console.log(userAccount.data.balance);
-                    setBalance(userAccount.data.balance)
+                    console.log(userAccount.data.data.balance);
+                    setBalance(userAccount.data.data.balance)
                 })  
             }
         }).catch((error)=>{

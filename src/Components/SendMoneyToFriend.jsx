@@ -53,7 +53,7 @@ function initateTransfer({amount , to , from}){
         console.log(response)
         if(response.data.status){
             alert("Money send succesfully")
-            location.reload()
+            location.reload("/")
         }
     }).catch((e)=>{
         console.log("Error while transaction: +" + e);

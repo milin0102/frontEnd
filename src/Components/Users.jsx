@@ -12,7 +12,7 @@ export default function Users({currentUser}){
         let filterUserUrl = backEndUrl+userRoutes.module+userRoutes.endpoint.Bulk;
          axios.get(`${filterUserUrl}?filter=`+filters)
         .then((users)=>{
-            setUsers(users.data)
+            setUsers(users.data.data)
         })
     },[filters])
     return <>
@@ -24,11 +24,7 @@ export default function Users({currentUser}){
         </div>
         <div>
             {users.map((user) => {
-                console.log(user.userName)
-                console.log(currentUser.userName)
-                console.log(user.userName!=currentUser.userName)
                 if(user.userName!=currentUser.userName){
-                    console.log("inside");
                    return <User currentUser = {currentUser} user={user}  key={user.userId} />
                 }
             })}
