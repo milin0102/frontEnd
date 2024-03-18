@@ -3,12 +3,17 @@ import SubHeading from "./SubHeading";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { userRoutes , accountRoutes ,backEndUrls} from "../constants"
+import {useDispatch} from 'react-redux'
+import { updateBalance  ,decrementBalance} from "../features/balance/balanceSlice";
+
 const backEndUrl = (process.env.NODE_ENV === 'production') ? backEndUrls.production : backEndUrls.development; //to intialize process env , set node:true in eslint.cjs file
+
 
 
 
 export default function SendMoneyToFriend(){
     const [searchParam] = useSearchParams()
+    const dispatch = useDispatch()
     let amount=0;
     return <div>
         <div className="flex bg-slate-200 h-screen w-screen justify-center">
@@ -36,6 +41,7 @@ export default function SendMoneyToFriend(){
                     <div className="flex">
                     <button className="justify-center rounded-md text-sm font-medium  h-10 px-4 py-2 w-full bg-green-500 text-white"
                      onClick={()=>{
+                        //dispatch(decrementBalance({amount,to:searchParam.get("to") , from: searchParam.get("from")}))
                         initateTransfer({amount ,to:searchParam.get("to"),from:searchParam.get("from")})
                      }}>
                         Initiate Transfer
